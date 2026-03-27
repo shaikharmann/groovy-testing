@@ -6,7 +6,8 @@ pipeline {
     }
 
     environment {
-        JAVA_HOME = '/usr/lib/jvm/java-1.21.0-openjdk-amd64'
+    JAVA_HOME = '/usr/lib/jvm/java-1.21.0-openjdk-amd64'
+    PATH = "/usr/lib/jvm/java-1.21.0-openjdk-amd64/bin:${env.PATH}"
     }
 
     stages {
