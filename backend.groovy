@@ -27,5 +27,15 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('sending code'){
+            steps{
+                sshagent(['nginx']){
+                    sh "scp -o  StrictHostKeyChecking=no target/*.war ubuntu@13.201.26.255:/tmp"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@13.201.26.255 'mv /tmp/*.war /opt/tomcat/webapps/' " 
+                }
+        } }
+
+
+
     }
 }
