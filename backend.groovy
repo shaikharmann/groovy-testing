@@ -3,12 +3,11 @@ pipeline {
 
     tools {
         maven 'maven3.9'
+        jdk 'Java11'
+
     }
 
-    environment {
-    JAVA_HOME = '/usr/lib/jvm/java-1.21.0-openjdk-amd64'
-    PATH = "/usr/lib/jvm/java-1.21.0-openjdk-amd64/bin:${env.PATH}"
-    }
+ 
 
     stages {
         stage('Code Pull') {
