@@ -30,8 +30,8 @@ pipeline {
         stage('sending code'){
             steps{
                 sshagent(['nginx']){
-                    sh "scp -o  StrictHostKeyChecking=no target/*.war ubuntu@13.201.26.255:/tmp"
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@13.201.26.255 'sudo mv /tmp/*.war /opt/tomcat/webapps/' " 
+                    sh "scp -o  StrictHostKeyChecking=no target/*.war ubuntu@35.154.95.48:/tmp"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@35.154.95.48 'sudo mv /tmp/*.war /opt/tomcat/webapps/' " 
                 }
         } }
 
