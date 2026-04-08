@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven3.9'
+        jdk 'Java11'
+
+    }
+
+ 
+
+    stages {
+        stage('Code Pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/armanshaikh98713-create/Java-backend.git'
+            }
+        }
+
+        stage('sending code'){
+            steps{
+                sshagent(['nginx']){
+                    sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@35.154.95.48:/home/ubuntu"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@35.154.95.48 'docker build -t java-docker /home/ubuntu/.' " 
+                }
+        } }
+
+
+
+    }
+}
