@@ -18,9 +18,9 @@ pipeline {
 
         stage('sending code'){
             steps{
-                sshagent(['nginx']){
-                    sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@35.154.95.48:/home/ubuntu"
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@35.154.95.48 'docker build -t java-docker /home/ubuntu/.' " 
+                sshagent(['Docker']){
+                    sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@3.6.92.43:/home/ubuntu"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.6.92.43 'docker build -t java-docker /home/ubuntu/.' " 
                 }
         } }
 
