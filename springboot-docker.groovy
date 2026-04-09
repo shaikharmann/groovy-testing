@@ -19,10 +19,10 @@ pipeline {
         stage('sending code'){
             steps{
                 sshagent(['Docker']){
-                    sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@3.6.92.43:/home/ubuntu"
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.6.92.43 'docker build -t java-docker /home/ubuntu/.' " 
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.6.92.43 'docker stop java-docker' " 
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.6.92.43 'docker run -d -p 7861:8080 java-docker' " 
+                    sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@3.108.185.143:/home/ubuntu"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.108.185.143 'docker build -t java-docker /home/ubuntu/.' " 
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.108.185.143 'docker stop java-docker' " 
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@3.108.185.143 'docker run -d -p 7861:8080 java-docker' " 
                 }
         } }
 
