@@ -8,7 +8,7 @@ pipeline {
     }
 
      environment {
-       IP = "35.154.117.78"
+       IP = "65.1.132.9"
     }
  
 
