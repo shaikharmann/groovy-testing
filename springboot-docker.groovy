@@ -25,7 +25,7 @@ pipeline {
                     sh "scp -o  StrictHostKeyChecking=no -r * ubuntu@${IP}:/home/ubuntu"
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${IP} 'docker build -t shkarman12/java-docker:v.${BUILD_ID} /home/ubuntu/.' " 
                     // sh "ssh -o StrictHostKeyChecking=no ubuntu@${IP} 'docker stop docker-java' " 
-                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${IP} 'docker rm docker-java' "
+                    // sh "ssh -o StrictHostKeyChecking=no ubuntu@${IP} 'docker rm docker-java' "
                     sh "ssh -o StrictHostKeyChecking=no ubuntu@${IP} 'docker run -d -p 7861:8080 --name docker-java java-docker' " 
                 }
         } }
